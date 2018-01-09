@@ -1,0 +1,13 @@
+<h2  >Please insert details to return a book:</h2>
+<div>
+  <label>
+    Reader Id:
+    <input type="number" [(ngModel)]="currentReturn.readerId" />
+  </label>
+  <label>
+    Book Id:
+    <input type="text" [(ngModel)]="currentReturn.bookId"/>
+  </label>
+  <button type="button" (click)="returnBook()">Return</button>
+  <!--<p *ngIf="userExists == false">There is no such a user!</p>-->
+</div>

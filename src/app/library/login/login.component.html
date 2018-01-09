@@ -1,0 +1,14 @@
+<h2  >Please insert in your details:</h2>
+<div>
+  <label>
+    Id:
+    <input type="number" [(ngModel)]="currentUser.userId" />
+  </label>
+  <label>
+    Password:
+    <input type="text" [(ngModel)]="currentUser.password"/>
+  </label>
+  <button type="button" (click)="validateUser()">login</button>
+  <p *ngIf="userExists == false">There is no such a user!</p>
+</div>
+

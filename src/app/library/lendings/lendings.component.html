@@ -1,0 +1,13 @@
+<h2  >Please insert loan details:</h2>
+<div>
+  <label>
+    Reader Id:
+    <input type="number" [(ngModel)]="currentLend.readerId" />
+  </label>
+  <label>
+    Book Id:
+    <input type="text" [(ngModel)]="currentLend.bookId"/>
+  </label>
+  <button type="button" (click)="addLend()">Loan</button>
+  <!--<p *ngIf="userExists == false">There is no such a user!</p>-->
+</div>

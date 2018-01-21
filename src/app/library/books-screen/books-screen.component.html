@@ -1,0 +1,33 @@
+<h2  >Please insert criteria for the book you're looking for</h2>
+<div>
+  <label>
+    Book name:
+    <input type="text" [(ngModel)]="searchForBook.bookName"/>
+  </label>
+  <label>
+    Book author:
+    <input type="text" [(ngModel)]="searchForBook.bookAuthor"/>
+  </label>
+  <label>
+    Book publish year:
+    <input type="number" [(ngModel)]="searchForBook.bookPublishYear"/>
+  </label>
+  <label>
+    Book category:
+    <input type="number" [(ngModel)]="searchForBook.bookCategory"/><!-- dropdown -->
+  </label>
+  <label>
+    Book audiance:
+    <input type="number" [(ngModel)]="searchForBook.bookAudience"/><!-- dropdown -->
+  </label>
+  <button type="button" (click)="searchBooks()">Search</button>
+  <!--<p *ngIf="userExists == false">There is no such a user!</p>-->
+</div>
+
+<div>
+  <books [books]="searchResults" (recordSelected)="throwOutputAway($event)"></books>
+</div>
+<!-- (recordAdded)="addRecordUsingService(ch.name, $event)" -->
+    
+    
+

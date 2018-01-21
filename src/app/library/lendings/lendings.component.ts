@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LendingViewModel } from './lending.view-model';
-import { LendingService } from '../data/lendind.service';
+import { LendingService } from '../data/lending.service';
 
 @Component({
   selector: 'lendings',

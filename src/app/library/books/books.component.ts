@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Book } from '../model/book';
-import { BookViewModel } from '../book-status/book.view-model';
+
 
 @Component({
   selector: 'books',

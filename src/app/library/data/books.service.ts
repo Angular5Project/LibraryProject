@@ -1,6 +1,7 @@
 import { BookCopies } from "../model/book-copies";
-import { BookViewModel } from "../book-status/book.view-model";
 import { BookComponent } from "../book/book.component";
+import { BookViewModel } from "../books-screen/book.view-model";
+import { BooksComponent } from "../books/books.component";
 
 export class BooksService {
     
@@ -12,8 +13,8 @@ export class BooksService {
         return copies;
    }
 
-   serchBooks(searchForBook: BookViewModel): BookComponent[]{
-    let booksResult : BookComponent[] = new Array<BookComponent>();
+   serchBooks(searchForBook: BookViewModel): BooksComponent{
+    let booksResult : BooksComponent = new BooksComponent();
     return booksResult;
    }
 }

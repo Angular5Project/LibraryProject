@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BookViewModel } from './book.view-model';
 import { BookComponent } from '../book/book.component';
 import { BooksService } from '../data/books.service';
+import { BookViewModel } from '../books-screen/book.view-model';
 
 @Component({
   selector: 'app-book-status',
@@ -10,17 +10,13 @@ import { BooksService } from '../data/books.service';
 })
 export class BookStatusComponent implements OnInit {
 
-  private searchForBook: BookViewModel = new BookViewModel();
-  private searchResults: BookComponent[] ;
+  //private searchResults: BookComponent[] ;
   
   constructor(private bookService:BooksService) { }
 
   ngOnInit() {
   }
 
-  searchBooks(){
-    this.searchResults = this.bookService.serchBooks(searchForBook);
 
-  }
 
 }

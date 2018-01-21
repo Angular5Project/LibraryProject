@@ -114,7 +114,7 @@
     "bookCopies":[
         {
             "bookId":111,
-            "copyId":33
+            "copyId":"0000001"
         }
     ],
     "categoryCodes":[

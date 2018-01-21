@@ -2,7 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Book } from '../model/book';
 
 @Component({
-  selector: 'book-component',
+  selector: 'book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })

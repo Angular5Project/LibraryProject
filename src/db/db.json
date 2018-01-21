@@ -1,0 +1,157 @@
+{
+    "users":[
+        {
+            "id": 1,
+            "userName": "tamar",
+            "password": "123456789",
+            "securityLevel": 1,
+            "mail": "tamar@gmail.com", 
+            "phoneNumber" : "0527999999" 
+        },
+        {
+            "id":2,
+            "userName": "chana",
+            "password": "987654321",
+            "securityLevel": 1,
+            "mail": "chana@gmail.com", 
+            "phoneNumber" : "0527888888" 
+        },
+        {
+            "id":3,
+            "userName": "dvora",
+            "password": "123654789",
+            "securityLevel": 2,
+            "mail": "dvora@gmail.com", 
+            "phoneNumber" : "0527666666" 
+        }
+    ],
+
+    "reader":[
+        {
+            "readerId": 1,
+            "readerName": "dvori",
+            "mail": "tt@g.com",
+            "phoneNumber": "026777777",
+            "maxBooks": 4
+        }
+    ],
+
+    "lending":[
+          {
+            "bookId":122,
+            "readerId":2,
+            "lendingDate":"2018-1-1",
+            "returningDate":"2018-1-1"  
+          },
+          {
+            "bookId":122,
+            "readerId":1,
+            "lendingDate":"2018-2-1",
+            "returningDate":"2018-3-1"  
+          },
+          {
+            "bookId":123,
+            "readerId":2,
+            "lendingDate":"2018-1-1",
+            "returningDate":"2018-2-1"  
+          },
+          {
+            "bookId":124,
+            "readerId":3,
+            "lendingDate":"2018-1-12",
+            "returningDate":"2018-1-21"  
+          }
+    ],
+      
+    "book":[
+        {
+            "bookId":122,
+            "bookName":"kipa aduma",
+            "author":"rrr",
+            "publishYear":1950,
+            "categoryCode":140,
+            "audienceCode":1,
+            "location":7
+        },
+        {
+            "bookId":123,
+            "bookName":"kipa aduma",
+            "author":"rrr",
+            "publishYear":1950,
+            "categoryCode":140,
+            "audienceCode":1,
+            "location":7
+        },
+        {
+            "bookId":124,
+            "bookName":"kipa aduma",
+            "author":"rrr",
+            "publishYear":1950,
+            "categoryCode":140,
+            "audienceCode":1,
+            "location":7
+        },
+        {
+            "bookId":124,
+            "bookName":"kipa aduma",
+            "author":"rrr",
+            "publishYear":1950,
+            "categoryCode":140,
+            "audienceCode":1,
+            "location":7
+        },
+        {
+            "bookId":126,
+            "bookName":"kipa aduma",
+            "author":"rrr",
+            "publishYear":1950,
+            "categoryCode":140,
+            "audienceCode":1,
+            "location":7
+        }
+    ],
+
+    "bookCopies":[
+        {
+            "bookId":111,
+            "copyId":33
+        }
+    ],
+    "categoryCodes":[
+        {
+          "categoryCode": 140,
+          "categoryName":"textBook"
+        },
+        {
+          "categoryCode": 150,
+          "categoryName":"comicsBook"
+        },
+        {
+          "categoryCode": 160,
+          "categoryName":"tensionBook"
+        },
+        {
+          "categoryCode": 170,
+          "categoryName":"scienceBook"
+        },
+        {
+            "categoryCode": 180,
+            "categoryName":"psychologyBook"
+          }
+    ],
+    "audienceCodes":[
+        {
+            "audienceCode":1,
+            "audienceName":"children"
+        },
+        {
+            "audienceCode":2,
+            "audienceName":"youth"
+        },
+        {
+            "audienceCode":3,
+            "audienceName":"adults"
+        }
+    ]
+
+}

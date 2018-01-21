@@ -10,6 +10,7 @@ import { LendingService } from '../data/lendind.service';
 export class ReturningsComponent implements OnInit {
 
   private currentReturn:LendingViewModel = new LendingViewModel();
+  private loanExists:boolean;
 
   constructor(private lendingService:LendingService) { }
 
@@ -17,7 +18,7 @@ export class ReturningsComponent implements OnInit {
   }
 
   returnBook(){
-    this.lendingService.updateReturn(this.currentReturn);
+    this.loanExists = this.lendingService.updateReturn(this.currentReturn);
   }
 
 }

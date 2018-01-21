@@ -15,9 +15,9 @@ export class LendingService {
             throw new Error('You can\'t loan now. You have too many books' );
         //inert to lending, calculating the current date
     }
-
-    updateReturn(lereturnnd:LendingViewModel){
-        //check if loan exsits. if yes - update return date 
+ 
+    updateReturn(lereturnnd:LendingViewModel):boolean{
+       return true; //check if loan exsits. if yes - update return date and return true;
     }
 
    serchForLendedBooks( copies: BookCopies[]){

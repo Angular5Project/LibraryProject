@@ -9,7 +9,7 @@ import { Book } from '../model/book';
 })
 export class BooksComponent implements OnInit {
 
-  @Input() private books: Book[]
+  @Input() private books: Book[];
 
   @Output() private recordSelected: EventEmitter<Book> = new EventEmitter<Book>();
 
@@ -20,10 +20,14 @@ export class BooksComponent implements OnInit {
   ngOnInit() {
   }
 
-  addRecord(selectBook:Book) {
+  selectBook(selectBook:Book) {
+
+    debugger;
    // let selectedBook = new Book(selectBook.bookId,selectBook.bookName,selectBook.author
     //  ,selectBook.publishYear,selectBook.category,selectBook.audience,0);
     this.recordSelected.emit(selectBook);    
   }
+
+  
 
 }

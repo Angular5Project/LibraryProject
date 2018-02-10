@@ -5,14 +5,15 @@ import { BookViewModel } from './book.view-model';
 import { Book } from '../model/book';
 
 @Component({
-  selector: 'app-books-screen',
+  selector: 'books-screen',
   templateUrl: './books-screen.component.html',
   styleUrls: ['./books-screen.component.css']
 })
 export class BooksScreenComponent implements OnInit {
 
   private searchForBook: BookViewModel = new BookViewModel();
-  private searchResults: BooksComponent ;
+  private searchResults: Book[] ;
+  private inManageBooksScreen: boolean ;
  
   @Output() private bookSelected: EventEmitter<Book> = new EventEmitter<Book>();
 
@@ -20,13 +21,21 @@ export class BooksScreenComponent implements OnInit {
   constructor(private bookService:BooksService) { }
 
   ngOnInit() {
+    this.inManageBooksScreen = true; //TODO: send this parameter from the father
+  }
+
+  addBook(){
+    //TODO: rout to the internal manage books screen
   }
 
   searchBooks(){
-    this.searchResults = this.bookService.serchBooks(this.searchForBook);
+    this.bookService.serchBooks(this.searchForBook).then(result=>{
+      this.searchResults = result;
+    });
   }
 
   throwOutputAway(selectedbook: Book){
+    debugger;
     this.bookSelected.emit(selectedbook); 
   }
 

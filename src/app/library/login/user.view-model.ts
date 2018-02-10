@@ -1,4 +1,4 @@
 export class UserViewModel{
-    userId:number;
+    userName:number;
     password:string;
 }

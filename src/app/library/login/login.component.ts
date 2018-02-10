@@ -18,7 +18,9 @@ export class LoginComponent implements OnInit {
   }
 
   validateUser() {
-    this.userExists =  this.userService.checkUserExists(this.currentUser);
+    this.userExists = false;
+    this.userService.checkUserExists(this.currentUser).then(result=>{
+      this.userExists = result;
+    });
   }
-
-}
+ }

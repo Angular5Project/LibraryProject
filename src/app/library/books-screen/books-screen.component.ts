@@ -3,6 +3,8 @@ import { BooksService } from '../data/books.service';
 import { BooksComponent } from '../books/books.component';
 import { BookViewModel } from './book.view-model';
 import { Book } from '../model/book';
+import { CategoryCodes } from '../model/categories-codes';
+import { AudienceCodes } from '../model/audience-codes';
 
 @Component({
   selector: 'books-screen',
@@ -16,19 +18,33 @@ export class BooksScreenComponent implements OnInit {
   private inManageBooksScreen: boolean ;
  
   @Output() private bookSelected: EventEmitter<Book> = new EventEmitter<Book>();
-
+  private categories:CategoryCodes[];
+  private audience:AudienceCodes[];
   
   constructor(private bookService:BooksService) { }
 
   ngOnInit() {
+    debugger;
     this.inManageBooksScreen = true; //TODO: send this parameter from the father
+    this.bookService.getAllCtegories().then(result=>{
+      if(result.length>0){
+        this.categories=result;
+      }
+    });
+    this.bookService.getAllAudiance().then(result=>{
+      if(result.length>0){
+        this.audience=result;
+      }
+    });
   }
 
   addBook(){
-    //TODO: rout to the internal manage books screen
+    let newBook : Book = new Book(null,"","",null,null,null,null);
+    this.bookSelected.emit(newBook);
   }
 
   searchBooks(){
+    debugger;
     this.bookService.serchBooks(this.searchForBook).then(result=>{
       this.searchResults = result;
     });

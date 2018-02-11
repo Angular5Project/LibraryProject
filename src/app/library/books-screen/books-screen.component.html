@@ -14,11 +14,17 @@
   </label>
   <label>
     Book category:
-    <input type="number" [(ngModel)]="searchForBook.bookCategory"/><!-- dropdown -->
+    <select [(ngModel)]="searchForBook.bookCategory" >
+        <option [value]="">Please Select</option>
+        <option *ngFor="let c of categories" [value]="c.categoryCode" >{{c.categoryName}}</option>
+      </select>
   </label>
   <label>
     Book audiance:
-    <input type="number" [(ngModel)]="searchForBook.bookAudience"/><!-- dropdown -->
+    <select [(ngModel)]="searchForBook.bookAudience" >
+        <option [value]="">Please Select</option>
+        <option *ngFor="let c of audience" [value]="c.audienceCode" >{{c.audienceName}}</option>
+      </select>
   </label>
   <button type="button" (click)="searchBooks()">Search</button>
   <button type="button" ng-show="inManageBooksScreen" (click)="addBook()">Add</button>

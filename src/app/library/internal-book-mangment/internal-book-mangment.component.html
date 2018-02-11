@@ -1,0 +1,42 @@
+<div>
+  <h2>Internal Book managment screen:</h2>
+  <label>
+      Book id:
+      <input type="text" [(ngModel)]="currentBook.bookId"/>
+    </label>
+    <label>
+      Book name:
+      <input type="text" [(ngModel)]="currentBook.bookName"/>
+    </label>
+    <label>
+      Book author:
+      <input type="text" [(ngModel)]="currentBook.bookAuthor"/>
+    </label>
+    <label>
+      Book publish year:
+      <input type="number" [(ngModel)]="currentBook.bookPublishYear"/>
+    </label>
+    <label>
+      Book category:
+      <select [(ngModel)]="currentBook.bookCategory" >
+          <option [value]="">Please Select</option>
+          <option *ngFor="let c of categories" [value]="c.categoryCode" >{{c.categoryName}}</option>
+        </select>
+    </label>
+    <label>
+      Book audiance:
+      <select [(ngModel)]="currentBook.bookAudience" >
+          <option [value]="">Please Select</option>
+          <option *ngFor="let c of audience" [value]="c.audienceCode" >{{c.audienceName}}</option>
+        </select>
+    </label>
+    <label>
+        Book location:
+        <input type="number" [(ngModel)]="currentBook.bookLocation"/>
+    </label>
+    <div>{{errorMessage}}</div>
+    <button type="button" (click)="Save()">Save</button>
+    <button type="button" (click)="DeleteBookFromLibrary()">Delete</button>
+    <button type="button" (click)="addCopyOfBook()">Add Copy</button>
+    <button type="button" (click)="cancel()">Cancel</button>
+</div>

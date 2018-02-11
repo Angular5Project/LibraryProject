@@ -6,6 +6,9 @@ import { HttpClient } from "@angular/common/http";
 import { Book } from "../model/book";
 import { Injectable } from "@angular/core";
 import { Lending } from "../model/lending";
+import { CategoryCodes } from "../model/categories-codes";
+import { AudienceCodes } from "../model/audience-codes";
+import { Promise } from "q";
 
 @Injectable()
 export class BooksService {
@@ -75,5 +78,26 @@ export class BooksService {
         } 
     }
     return false;
+ }
+
+ async getAllCtegories():Promise<CategoryCodes[]>{
+     debugger;
+    let categoriesUrl = this.baseUrl + '/categoryCodes';
+    let categoriesFromDB= await this.httpClient.get<CategoryCodes[]>(categoriesUrl).toPromise();
+    return categoriesFromDB;
+ }
+
+ async getAllAudiance():Promise<AudienceCodes[]>{
+     debugger;
+    let audienceUrl = this.baseUrl + '/audienceCodes';
+    let audienceFromDB= await this.httpClient.get<AudienceCodes[]>(audienceUrl).toPromise();
+    return audienceFromDB;
+ }
+
+ async addBook ():Promise<>
+ {
+    let booksUrl = this.baseUrl + '/book';
+    
+    let result = await this.httpClient.get<Book[]>(booksUrl).toPromise();
  }
 }

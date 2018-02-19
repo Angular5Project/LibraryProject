@@ -46,11 +46,11 @@
       "bookId": 1111115,
       "readerId": 1,
       "lendingDate": "12/03/2017",
-      "returningDate":null,
+      "returningDate": null,
       "id": 6
     },
     {
-      "bookId":1111111,
+      "bookId": 1111111,
       "readerId": 1,
       "lendingDate": "2018-02-05T13:47:28.015Z",
       "returningDate": null,
@@ -73,26 +73,7 @@
   ],
   "book": [
     {
-      "id":1,
-      "bookId": 122,
-      "bookName": "kipa",
-      "author": "rrr",
-      "publishYear": 1950,
-      "categoryCode": 140,
-      "audienceCode": 1,
-      "location": 7
-    },
-    {
-      "bookId": 111,
-      "bookName": "kipa aduma",
-      "author": "rrr",
-      "publishYear": 1950,
-      "categoryCode": 140,
-      "audienceCode": 1,
-      "location": 7
-    },
-    {
-      "bookId": 124,
+      "id": 124,
       "bookName": "abc",
       "author": "rrr",
       "publishYear": 1950,
@@ -101,7 +82,7 @@
       "location": 7
     },
     {
-      "bookId": 111,
+      "id": 111,
       "bookName": "kipa aduma",
       "author": "rrr",
       "publishYear": 1950,
@@ -110,13 +91,22 @@
       "location": 7
     },
     {
-      "bookId": 111,
+      "id": 111,
       "bookName": "kipa aduma",
       "author": "aaa",
       "publishYear": 1950,
       "categoryCode": 140,
       "audienceCode": 1,
       "location": 6
+    },
+    {
+      "id": 1,
+      "bookName": "ee",
+      "author": "ww",
+      "publishYear": 33,
+      "categoryCode": "150",
+      "audienceCode": "1",
+      "location": 1
     }
   ],
   "bookCopies": [

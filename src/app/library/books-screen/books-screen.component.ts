@@ -14,12 +14,13 @@ import { AudienceCodes } from '../model/audience-codes';
 export class BooksScreenComponent implements OnInit {
 
   private searchForBook: BookViewModel = new BookViewModel();
-  private searchResults: Book[] ;
+  private searchResults: BookViewModel[] ;
   private inManageBooksScreen: boolean ;
  
-  @Output() private bookSelected: EventEmitter<Book> = new EventEmitter<Book>();
+  @Output() private bookSelected: EventEmitter<BookViewModel> = new EventEmitter<BookViewModel>();
   private categories:CategoryCodes[];
   private audience:AudienceCodes[];
+  @Input() private fromStatus:boolean;
   
   constructor(private bookService:BooksService) { }
 
@@ -39,7 +40,7 @@ export class BooksScreenComponent implements OnInit {
   }
 
   addBook(){
-    let newBook : Book = new Book(null,"","",null,null,null,null);
+    let newBook : BookViewModel = new BookViewModel();
     this.bookSelected.emit(newBook);
   }
 
@@ -50,7 +51,7 @@ export class BooksScreenComponent implements OnInit {
     });
   }
 
-  throwOutputAway(selectedbook: Book){
+  throwOutputAway(selectedbook: BookViewModel){
     debugger;
     this.bookSelected.emit(selectedbook); 
   }

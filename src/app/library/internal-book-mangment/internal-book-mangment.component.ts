@@ -4,6 +4,8 @@ import { CategoryCodes } from '../model/categories-codes';
 import { AudienceCodes } from '../model/audience-codes';
 import { BookViewModel } from '../books-screen/book.view-model';
 
+
+
 @Component({
   selector: 'internal-book-mangment',
   templateUrl: './internal-book-mangment.component.html',
@@ -15,11 +17,17 @@ export class InternalBookMangmentComponent implements OnInit {
   private categories:CategoryCodes[];
   private audience:AudienceCodes[];
   private errorMessage:string="";
+  private error:boolean=true;
+  private successMessage:string="";
+  private success:boolean=true;
 
   constructor(private bookService: BooksService) { }
 
   ngOnInit() {
     this.errorMessage = "";
+    this.successMessage="";
+    this.currentBook.bookCategory=0;
+    this.currentBook.bookAudience=0;
     this.bookService.getAllCtegories().then(result=>{
       if(result.length>0){
         this.categories=result;
@@ -32,43 +40,67 @@ export class InternalBookMangmentComponent implements OnInit {
     });
   }
   Save(){
+    debugger;
+    this.error=true;
+    this.success=true;
     this.errorMessage = "";
+    this.successMessage="";
     this.errorMessage = this.checkAllFieldsAreFill(this.currentBook);
     if(this.errorMessage==""){
-     // this.bookService.
+      this.bookService.addBook(this.currentBook).then(result=>{
+        this.success=false;
+        this.successMessage="You'r book was added successfully!";
+      });
+    }
+    else{
+      this.error=false;
     }
   }
   DeleteBookFromLibrary(){
+    this.error=true;
+    this.success=true;
     this.errorMessage = "";
+    this.successMessage="";
     if(!this.currentBook.bookId){
+      this.error=false;
       this.errorMessage = "please enter book ID";
     }else{
-      //this.bookService...
-    }
-    
+      this.bookService.deleteBook(this.currentBook.bookId).then(result=>{
+        this.success=false;
+        this.successMessage="You'r book was deleted successfully!";
+      });
+    }  
   }
   addCopyOfBook(){
+    this.error=true;
+    this.success=true;
     this.errorMessage = "";
+    this.successMessage="";
     if(!this.currentBook.bookId){
+      this.error=false;
       this.errorMessage = "please enter book ID";
     }else{
-      //this.bookService...
+      this.bookService.addCopy(this.currentBook.bookId).then(result=>{
+        this.success=false;
+        this.successMessage="You'r copy was deleted successfully!"
+      })
     }
   }
   cancel(){
     //TODO: route to the previous screen
   }
   checkAllFieldsAreFill(book: BookViewModel): string {
+    debugger;
     if(!book.bookId)
       return "please enter book ID";
     if(!book.bookName || book.bookName==' ')
       return "please enter book name";
     if(!book.bookAuthor || book.bookAuthor==' ')
       return "please enter book author";
-    if(!book.bookAudience)
-      return "please enter book audience";
-    if(!book.bookCategory)
+    if(!book.bookCategory ||book.bookCategory.toString()=="0")
       return "please enter book category";
+    if(!book.bookAudience || book.bookAudience.toString()=='0')
+      return "please enter book audience";
     if(!book.bookPublishYear)
       return "please enter book publish year";
     if(!book.bookLocation)

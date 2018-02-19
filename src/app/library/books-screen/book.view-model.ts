@@ -4,6 +4,8 @@ export class BookViewModel{
     bookAuthor:string;
     bookPublishYear:number;
     bookCategory:number;
+    bookCategoryDesc:string;
     bookAudience:number;
+    bookAudienceDesc:string;
     bookLocation:number;
 }

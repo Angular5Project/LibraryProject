@@ -7,6 +7,9 @@ import { LendingService } from './library/data/lending.service';
 import { BooksService } from './library/data/books.service';
 import { ReadersService } from './library/data/readers.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+
 
 
 @NgModule({
@@ -16,7 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     LibraryModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [UsersService, LendingService, BooksService, ReadersService],
   bootstrap: [AppComponent]

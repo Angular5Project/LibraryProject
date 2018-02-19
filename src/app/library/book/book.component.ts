@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Book } from '../model/book';
+import { BookViewModel } from '../books-screen/book.view-model';
 
 @Component({
   selector: 'book',
@@ -8,7 +9,7 @@ import { Book } from '../model/book';
 })
 export class BookComponent implements OnInit {
 
-  @Input() private book: Book;
+  @Input() private book: BookViewModel;
 
   constructor() { }
 

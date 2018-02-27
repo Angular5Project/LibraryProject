@@ -27,11 +27,11 @@
   ],
   "reader": [
     {
-      "readerId": 1,
-      "readerName": "dvori",
-      "mail": "tt@g.com",
-      "phoneNumber": "026777777",
-      "maxBooks": 4
+      "id": 99999,
+      "readerName": "chanie",
+      "mail": "ttt@yyy",
+      "phoneNumber": "02677788",
+      "maxBooks": 3
     }
   ],
   "lending": [
@@ -40,13 +40,13 @@
       "bookId": 1111111,
       "readerId": 3,
       "lendingDate": "2018-1-12",
-      "returningDate": "2018-1-21"
+      "returningDate": "2018-02-19T21:10:50.416Z"
     },
     {
       "bookId": 1111115,
       "readerId": 1,
       "lendingDate": "12/03/2017",
-      "returningDate": null,
+      "returningDate": "2018-02-19T21:25:40.120Z",
       "id": 6
     },
     {
@@ -73,16 +73,8 @@
   ],
   "book": [
     {
-      "id": 124,
-      "bookName": "abc",
-      "author": "rrr",
-      "publishYear": 1950,
-      "categoryCode": 130,
-      "audienceCode": 1,
-      "location": 7
-    },
-    {
-      "id": 111,
+      "id": 2,
+      "bookId": 112,
       "bookName": "kipa aduma",
       "author": "rrr",
       "publishYear": 1950,
@@ -91,7 +83,8 @@
       "location": 7
     },
     {
-      "id": 111,
+      "id": 3,
+      "bookId": 113,
       "bookName": "kipa aduma",
       "author": "aaa",
       "publishYear": 1950,
@@ -100,35 +93,54 @@
       "location": 6
     },
     {
-      "id": 1,
+      "id": 4,
+      "bookId": 114,
       "bookName": "ee",
       "author": "ww",
       "publishYear": 33,
       "categoryCode": "150",
       "audienceCode": "1",
       "location": 1
+    },
+    {
+      "bookId": 111,
+      "bookName": "Science of flowers",
+      "author": "Elena",
+      "publishYear": 1980,
+      "categoryCode": "170",
+      "audienceCode": "3",
+      "location": 1234,
+      "id": 5
     }
   ],
   "bookCopies": [
     {
       "bookId": 111,
-      "copyId": 1111111
+      "id": 1111111
     },
     {
       "bookId": 111,
-      "copyId": 1111112
+      "id": 1111112
     },
     {
       "bookId": 111,
-      "copyId": 1111113
+      "id": 1111113
     },
     {
       "bookId": 111,
-      "copyId": 1111114
+      "id": 1111114
     },
     {
       "bookId": 124,
-      "copyId": 1111115
+      "id": 1111115
+    },
+    {
+      "bookId": 111,
+      "id": 1
+    },
+    {
+      "bookId": 111,
+      "id": 2
     }
   ],
   "categoryCodes": [

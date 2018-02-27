@@ -9,9 +9,7 @@ export class UsersService {
 
     baseUrl: string = 'http://localhost:3000';
 
-    constructor(private httpClient:HttpClient){
-        
-    }
+    constructor(private httpClient:HttpClient){}
 
     async checkUserExists(user:UserViewModel): Promise<boolean>{
         let userUrl = this.baseUrl + '/users?userName=' + user.userName + '&password=' + user.password;

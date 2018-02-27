@@ -6,10 +6,11 @@ import { Reader } from "../model/reader";
 import { Lending } from "../model/lending";
 import { promise } from "selenium-webdriver";
 import { Injectable } from "@angular/core";
+import { LendingDB } from "../../../db/lendingDB";
 
 @Injectable()
 export class LendingService {
-    private readerService: ReadersService = new ReadersService();
+    //private readerService: ReadersService = new ReadersService();
 
     baseUrl: string = 'http://localhost:3000';
 
@@ -53,13 +54,10 @@ export class LendingService {
   async updateReturn(lenReturnd:LendingViewModel):Promise<boolean>{
       debugger;
         let lendingUrl = this.baseUrl + '/lending?readerId=' + lenReturnd.readerId+ '&bookId='+lenReturnd.bookId;
-        let lendingsFromDB = await this.httpClient.get<Lending[]>(lendingUrl).toPromise();
+        let lendingsFromDB = await this.httpClient.get<LendingDB[]>(lendingUrl).toPromise();
         if(lendingsFromDB.length>0){
-            let loan = new Lending(lendingsFromDB[0].bookId,lendingsFromDB[0].readerId,lendingsFromDB[0].lendingDate,new Date());
-              this.httpClient.post(this.baseUrl + '/lending',loan).subscribe(result=>{//??????
-                  debugger;
-              });
-            return true;
+              await this.httpClient.patch(this.baseUrl + '/lending/'+ lendingsFromDB[0].id.toString(),{"returningDate":new Date()}).toPromise();
+              return true;
         }
         else
             return false; 

@@ -21,19 +21,16 @@ export class ReturningsComponent implements OnInit {
   returnBook(){
    //this.loanExists = this.lendingService.updateReturn(this.currentReturn);
    this.lendingService.updateReturn(this.currentReturn).then(result=>{
-     debugger;
-    if(result!= null){
+    debugger;
+    if(result!=null){
       debugger;
-      switch(result){
-        case true:
-          this.massage = "the book was retured successfully";
-          break;
-        case !true:
-          this.massage = "This book was't lended";
-          break;
+     if(result){
+      debugger;
+        this.massage = "the book was retured successfully";
+      }else{
+        this.massage = "This book was't lended";
       }
     }
   });
   }
-
 }

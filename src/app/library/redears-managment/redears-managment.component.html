@@ -1,0 +1,52 @@
+<div class="container" style="width:75%">
+  <div class="panel panel-default">
+ <h2>Readers managment screen:</h2>
+ <div class="alert alert-danger " [hidden]="error" >
+    {{errorMessage}}
+</div>
+
+ <div class="alert alert-success" [hidden]="success">
+   {{successMessage}}
+ </div>
+ <div class="panel-heading">Please insert details of reader:</div>
+ <div class="panel-body">
+  <div class="row">
+    <span class="col-sm-2">
+        Reader id:
+    </span>
+    <input class="col-sm-2 form-control" type="number" [(ngModel)]="currentReader.readerId"/>
+    <div class="col-sm-1"></div>
+      <span class="col-sm-2">
+          Reader name:
+      </span>
+      <input class="col-sm-2 form-control" type="text" [(ngModel)]="currentReader.readerName"/>
+  </div>
+  <div class="row">
+      <span class="col-sm-2">
+          Reader mail:
+      </span>
+      <input class="col-sm-2 form-control" type="text" [(ngModel)]="currentReader.mail"/>
+      <div class="col-sm-1"></div>
+    <span class="col-sm-2">
+      Reader phone number:
+    </span>
+      <input class="col-sm-2 form-control" type="text" [(ngModel)]="currentReader.phoneNumber"/>
+  </div>
+  
+<div class="row">
+  <span class="col-sm-2">
+      No. of book the reader can take::
+    </span>
+      <input type="number" [(ngModel)]="currentReader.maxBooks" class="col-sm-2 form-control"/>
+    </div>
+  </div>
+ </div>
+<div class="row ">
+  <div class="col-sm-12 text-right">
+<button type="button" (click)="getDetailsById()" class="btn btn-default">Get Reader</button>
+<button type="button" (click)="Save()" class="btn btn-default">Save</button>
+<button type="button" (click)="Delete()"class="btn btn-default">Delete</button>
+
+</div>
+</div>
+</div>

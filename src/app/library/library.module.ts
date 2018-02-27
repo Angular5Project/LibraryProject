@@ -12,6 +12,8 @@ import { BookManagmentComponent } from './book-managment/book-managment.componen
 import { InternalBookMangmentComponent } from './internal-book-mangment/internal-book-mangment.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { RedearsManagmentComponent } from './redears-managment/redears-managment.component';
+import { ReadersComponent } from './readers/readers.component';
 
 @NgModule({
   imports: [
@@ -21,9 +23,9 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   declarations: [LoginComponent, LendingsComponent, ReturningsComponent,BookStatusComponent, 
     BookComponent,BooksComponent, BooksScreenComponent,HomePageComponent,
-    BookManagmentComponent,InternalBookMangmentComponent],
+    BookManagmentComponent,InternalBookMangmentComponent, RedearsManagmentComponent],
   exports:[LoginComponent, LendingsComponent, ReturningsComponent,BookStatusComponent,
-    BookManagmentComponent,InternalBookMangmentComponent,HomePageComponent]
+    BookManagmentComponent,InternalBookMangmentComponent,HomePageComponent,RedearsManagmentComponent]
 })
 
 

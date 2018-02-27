@@ -21,27 +21,28 @@ import { ReturningsComponent } from "./library/returnings/returnings.component";
    
 // ];
 const route : Route[] = [
-     { path: 'login', component: LoginComponent},
+     { path: '', component: LoginComponent},
+     // { path: 'login', component: LoginComponent},
      { path: 'homePage', component: HomePageComponent },
-     { path: 'homePage/bookManagment', component: BookManagmentComponent ,outlet:'homeNavigation'},
-     { path: 'homePage/bookStatus', component: BookStatusComponent ,outlet:'homeNavigation'},
-     { path: 'homePage/lendings', component: LendingsComponent },
+     { path: 'homePage/bookManagment', component: BookManagmentComponent },
+     { path: 'homePage/bookStatus', component: BookStatusComponent },
+     { path: 'homePage/lendings', component: LendingsComponent,outlet:'homeNavigation' },
      { path: 'homePage/returnings', component: ReturningsComponent }  
  ];
-const routes: Routes = [
-    {path: '', redirectTo: 'login', pathMatch: 'full'},
-    {path: 'login', component: LoginComponent},
-    {path: 'homePage', component: HomePageComponent, children: [
-        {path: 'bookManagment', component: BookManagmentComponent},
-        {path: 'bookStatus', component: BookStatusComponent, outlet:'homeNavigation'},
-        {path: 'homePage/lendings', component: LendingsComponent, outlet:'homeNavigation'},
-        {path: 'homePage/returnings', component: ReturningsComponent, outlet:'homeNavigation'}
-  ]},
-];
+ const routes: Routes = [
+     {path: '', redirectTo: 'login', pathMatch: 'full'},
+     {path: 'login', component: LoginComponent},
+     {path: 'homePage', component: HomePageComponent, children: [
+         {path: 'bookManagment', component: BookManagmentComponent},
+         {path: 'bookStatus', component: BookStatusComponent},
+         {path: 'lendings', component: LendingsComponent},
+         {path: 'returnings', component: ReturningsComponent}
+   ]},
+ ];
 
 @NgModule({
     imports:[
-        RouterModule.forRoot(routes),
+        RouterModule.forRoot(routes)
         
     ],
     exports: [

@@ -1,13 +1,30 @@
-<h2  >Please insert loan details:</h2>
-<div>
-  <label>
-    Reader Id:
-    <input type="number" [(ngModel)]="currentLend.readerId" />
-  </label>
-  <label>
+<div class="container " style="width: 100%">
+    <h3>Please insert loan details:</h3>
+  <div class="panel panel-default">
+ <!--  <div class="panel-heading">Please insert loan details:</div>-->
+
+    <div class="panel-body">
+        <div class="row">
+          <span class="col-sm-6">
+              Reader Id:
+          </span>
+          <label class="col-sm-6">
+              <input type="number" [(ngModel)]="currentLend.readerId" />
+          </label>
+        </div>
+        <div class="row"></div>
+        <div class="row">
+            <span class="col-sm-6">
     Book Id:
+            </span>
+    <label class="col-sm-6">
     <input type="text" [(ngModel)]="currentLend.bookId"/>
   </label>
+</div>
   <button type="button" (click)="addLend()">Loan</button>
   <p>{{massage}}</p>
+
 </div>
+</div>
+</div>
+

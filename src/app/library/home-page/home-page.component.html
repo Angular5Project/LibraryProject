@@ -1,8 +1,11 @@
- <nav>
-  <a routerLink="lendings" routerLinkActive="current">Lendings</a>
-  <a routerLink="returnings" routerLinkActive="current">Returnings</a>
-  <a routerLink="bookStatus" routerLinkActive="current">Book Status</a>
-  <a routerLink="bookManagment" routerLinkActive="current">Book Managment</a>
-</nav>
-<router-outlet name="homeNavigation"></router-outlet> 
-<!--<router-outlet></router-outlet>-->
+ <div class="container " style="width: 65%">
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;" >
+    
+      <a routerLink="lendings" routerLinkActive="current">Lendings</a>
+      <a routerLink="returnings" routerLinkActive="current">Returnings</a>
+      <a routerLink="bookStatus" routerLinkActive="current">Book Status</a>
+      <a routerLink="bookManagment" routerLinkActive="current">Book Managment</a>
+  </nav>
+   <router-outlet></router-outlet>
+
+  </div>

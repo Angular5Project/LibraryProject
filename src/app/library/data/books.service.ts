@@ -10,12 +10,13 @@ import { CategoryCodes } from "../model/categories-codes";
 import { AudienceCodes } from "../model/audience-codes";
 import { promise } from "selenium-webdriver";
 import { Observable } from "rxjs/Observable";
+import { BookDB } from "../../../db/bookDB";
 
 
 @Injectable()
 export class BooksService {
     private categoriesFromDB:CategoryCodes[] = new Array<CategoryCodes>();
-    private  audienceFromDB:AudienceCodes[] = new Array<AudienceCodes>();
+    private audienceFromDB:AudienceCodes[] = new Array<AudienceCodes>();
     
     baseUrl: string = 'http://localhost:3000';
 
@@ -77,12 +78,11 @@ export class BooksService {
    }
 
    async getStatusOfBook(selectedBook:Book):Promise<boolean>{
-    debugger;
     let booksUrl = this.baseUrl + '/bookCopies?bookId='+selectedBook.bookId;
     let result = await this.httpClient.get<BookCopies[]>(booksUrl).toPromise();
     if(result.length>0){
         for (var book of result){
-            let lendingUrl = this.baseUrl + '/lending?bookId=' + book.copyId;
+            let lendingUrl = this.baseUrl + '/lending?bookId=' + book.id;
             let lendingsFromDB =await this.httpClient.get<Lending[]>(lendingUrl).toPromise();
             if(lendingsFromDB.length==0){
                 return true;
@@ -109,7 +109,6 @@ export class BooksService {
  }
 
  async getAllCtegories():Promise<CategoryCodes[]>{
-     debugger;
      if(this.categoriesFromDB.length==0){
         let categoriesUrl = this.baseUrl + '/categoryCodes';
         this.categoriesFromDB= await this.httpClient.get<CategoryCodes[]>(categoriesUrl).toPromise();
@@ -129,14 +128,12 @@ export class BooksService {
 
 
  async addBook (book:BookViewModel):Promise<boolean>{
-     debugger;
      let newBook = new Book(book.bookId,book.bookName,book.bookAuthor,book.bookPublishYear,
     book.bookCategory,book.bookAudience,book.bookLocation);
     let booksUrl = this.baseUrl + '/book?bookId='+ book.bookId; 
-    let bookFromDB = await this.httpClient.get<Book[]>(booksUrl).toPromise();
+    let bookFromDB = await this.httpClient.get<BookDB[]>(booksUrl).toPromise();
     if(bookFromDB.length>0){
-        await this.httpClient.delete(booksUrl).toPromise();
-        //await this.httpClient.delete(booksUrl+'/'+bookFromDB[0].id).toPromise();
+        await this.httpClient.delete(this.baseUrl+'/book/'+bookFromDB[0].id).toPromise();
         await this.insertToDB(newBook);
         return true;
     }
@@ -148,23 +145,26 @@ export class BooksService {
 
  async deleteBook (bookId:number):Promise<boolean>{
     let booksUrl = this.baseUrl + '/book?bookId='+ bookId; 
-    await this.httpClient.delete(booksUrl).toPromise();
-    return true;
+   let bookFromDB = await this.httpClient.get<BookDB[]>(booksUrl).toPromise();
+   if(bookFromDB.length>0){
+       await this.httpClient.delete(this.baseUrl+'/book/'+bookFromDB[0].id).toPromise();
+        return true;
+
+   }
+    return false;
  }
 
  async addCopy (bookId:number):Promise<boolean>{
-    let copyNo;
-    let copiesUrl = this.baseUrl + '/bookCopies?bookId='+bookId;
-    let copiesFromDB= await this.httpClient.get<BookCopies[]>(copiesUrl).toPromise();
-    if(copiesFromDB.length>0){
-        copyNo = +(copiesFromDB[length-1].copyId);
-        copyNo++;
-    }else{
-        copyNo = bookId+"000";
+    let booksUrl = this.baseUrl + '/book?bookId='+ bookId; 
+    let bookFromDB = await this.httpClient.get<BookDB[]>(booksUrl).toPromise();
+    if(bookFromDB.length>0){
+        let newCopy = new BookCopies();
+        newCopy.bookId = bookId;
+        let copiesUrl = this.baseUrl + '/bookCopies';
+        await this.httpClient.post(copiesUrl,newCopy).toPromise();
+        return true;
     }
-
-    let newCopy = new BookCopies(bookId,copyNo);
-     return true;
+    return false;
  }
 
  async insertToDB(book:Book){

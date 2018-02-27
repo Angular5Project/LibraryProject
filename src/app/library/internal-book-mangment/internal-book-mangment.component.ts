@@ -40,7 +40,6 @@ export class InternalBookMangmentComponent implements OnInit {
     });
   }
   Save(){
-    debugger;
     this.error=true;
     this.success=true;
     this.errorMessage = "";
@@ -66,8 +65,14 @@ export class InternalBookMangmentComponent implements OnInit {
       this.errorMessage = "please enter book ID";
     }else{
       this.bookService.deleteBook(this.currentBook.bookId).then(result=>{
+        if(result==true){
         this.success=false;
         this.successMessage="You'r book was deleted successfully!";
+        }
+        else{
+          this.error=false;
+          this.errorMessage = "Failed to delete the book";
+        }
       });
     }  
   }
@@ -81,16 +86,20 @@ export class InternalBookMangmentComponent implements OnInit {
       this.errorMessage = "please enter book ID";
     }else{
       this.bookService.addCopy(this.currentBook.bookId).then(result=>{
+        if(result==true){
         this.success=false;
-        this.successMessage="You'r copy was deleted successfully!"
-      })
+        this.successMessage="You'r copy was added successfully!"
+        }else{
+          this.error=false;
+          this.errorMessage = "Failed to add a copy for this book";
+        }
+      });
     }
   }
   cancel(){
     //TODO: route to the previous screen
   }
   checkAllFieldsAreFill(book: BookViewModel): string {
-    debugger;
     if(!book.bookId)
       return "please enter book ID";
     if(!book.bookName || book.bookName==' ')

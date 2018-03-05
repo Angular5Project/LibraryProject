@@ -1,14 +1,29 @@
-<h2  >Please insert details to return a book:</h2>
-<div>
-  <label>
-    Reader Id:
-    <input type="number" [(ngModel)]="currentReturn.readerId" />
-  </label>
-  <label>
-    Book Id:
-    <input type="text" [(ngModel)]="currentReturn.bookId"/>
-  </label>
-  <button type="button" (click)="returnBook()">Return</button>
- 
-  <div>{{massage}}</div>
+<div class="container " style="width: 90%">
+<h3>Please insert details to return a book:</h3>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+        <span class="col-sm-2">
+            Reader Id:
+        </span>
+        <label class="col-sm-3">
+          <input type="number" [(ngModel)]="currentReturn.readerId" class="form-control"/>
+        </label>
+    </div>
+    <div class="row">
+          <span class="col-sm-2">
+              Book Id:
+          </span>
+          <label class="col-sm-3">
+                <input type="text" [(ngModel)]="currentReturn.bookId" class="form-control"/>
+          </label>
+    </div>
+ </div>
+</div>
+
+<div class="col-sm-12 text-right">
+  <button type="button" (click)="returnBook()" class="btn btn-default">Return</button>
+</div>
+  <p>{{massage}}</p>
+
 </div>

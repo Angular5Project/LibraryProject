@@ -20,11 +20,12 @@ export class BookStatusComponent implements OnInit {
     this.massage="";
   }
 
-  getSelectedBookEvent(selectedBook:Book){
+  getSelectedBookEvent(selectedBook:BookViewModel){
     debugger;
-    this.bookService.getStatusOfBook(selectedBook).then(result=>{
+    
+    this.bookService.getStatusOfBook(selectedBook.bookId).then(result=>{
       if(result){
-        this.massage="there is such a book in the library, you can find it on shelf no."+selectedBook.location;
+        this.massage="there is such a book in the library, you can find it on shelf no."+selectedBook.bookLocation;
       }else{
         this.massage="sorry, there is no copy of this book in the library"
       }

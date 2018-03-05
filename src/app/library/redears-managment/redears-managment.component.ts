@@ -31,7 +31,7 @@ export class RedearsManagmentComponent implements OnInit {
     if(this.errorMessage==""){
       this.readerService.addReader(this.currentReader).then(result=>{
         this.success=false;
-        this.successMessage="You'r book was added successfully!";
+        this.successMessage="The reader was added successfully!";
       });
     }
     else{
@@ -49,7 +49,12 @@ export class RedearsManagmentComponent implements OnInit {
         this.errorMessage = "please enter reader ID";
       }else{
         this.readerService.getReader(this.currentReader.readerId).then(result=>{
+          if(result.readerId){
           this.currentReader=result;
+          }else{
+            this.error=false;
+            this.errorMessage = "there is no reader with this ID";
+          }
         });
       }
     
@@ -67,11 +72,11 @@ export class RedearsManagmentComponent implements OnInit {
       this.readerService.deleteReader(this.currentReader.readerId).then(result=>{
         if(result==true){
         this.success=false;
-        this.successMessage="You'r book was deleted successfully!";
+        this.successMessage="The reader was deleted successfully!";
         }
         else{
           this.error=false;
-          this.errorMessage = "Failed to delete the book";
+          this.errorMessage = "Failed to delete the reader";
         }
       });
     }  

@@ -77,8 +77,8 @@ export class BooksService {
         return vmBooksREsult; 
    }
 
-   async getStatusOfBook(selectedBook:Book):Promise<boolean>{
-    let booksUrl = this.baseUrl + '/bookCopies?bookId='+selectedBook.bookId;
+   async getStatusOfBook(bookId:number):Promise<boolean>{
+    let booksUrl = this.baseUrl + '/bookCopies?bookId='+bookId;
     let result = await this.httpClient.get<BookCopies[]>(booksUrl).toPromise();
     if(result.length>0){
         for (var book of result){
@@ -117,7 +117,6 @@ export class BooksService {
  }
 
  async getAllAudiance():Promise<AudienceCodes[]>{
-     debugger;
      if(this.audienceFromDB.length==0)
      {
         let audienceUrl = this.baseUrl + '/audienceCodes';
@@ -144,15 +143,27 @@ export class BooksService {
  }
 
  async deleteBook (bookId:number):Promise<boolean>{
-    let booksUrl = this.baseUrl + '/book?bookId='+ bookId; 
+   let booksUrl = this.baseUrl + '/book?bookId='+ bookId; 
    let bookFromDB = await this.httpClient.get<BookDB[]>(booksUrl).toPromise();
    if(bookFromDB.length>0){
-       await this.httpClient.delete(this.baseUrl+'/book/'+bookFromDB[0].id).toPromise();
-        return true;
+       let id:number = bookFromDB[0].id;
+       let bookId:number = bookFromDB[0].bookId;
+       await this.httpClient.delete(this.baseUrl+'/book/'+id).toPromise();
+       await this.deleteCopies(bookId);
+       return true;
 
    }
     return false;
  }
+
+async deleteCopies(id:number){
+    debugger;
+    let copiesUrl = this.baseUrl + '/bookCopies?bookId='+ id; 
+   let copiesFromDB = await this.httpClient.get<BookCopies[]>(copiesUrl).toPromise();
+   for(let item of copiesFromDB){
+    await this.httpClient.delete(this.baseUrl+'/bookCopies/'+item.id).toPromise();
+   }
+}
 
  async addCopy (bookId:number):Promise<boolean>{
     let booksUrl = this.baseUrl + '/book?bookId='+ bookId; 
@@ -169,5 +180,12 @@ export class BooksService {
 
  async insertToDB(book:Book){
      await this.httpClient.post(this.baseUrl +'/book', book).toPromise();
+ }
+
+ async getBookById(bookId:number):Promise<Book>{
+     debugger;
+    let booksUrl = this.baseUrl + '/book?bookId='+bookId;
+    let result = await this.httpClient.get<Book[]>(booksUrl).toPromise();
+    return result[0];
  }
 }

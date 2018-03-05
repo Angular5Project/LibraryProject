@@ -1,10 +1,9 @@
-<div class="container" style="width:75%">
+<div class="container" style="width:90%">
   <div class="panel panel-default">
  <h2>Readers managment screen:</h2>
  <div class="alert alert-danger " [hidden]="error" >
     {{errorMessage}}
 </div>
-
  <div class="alert alert-success" [hidden]="success">
    {{successMessage}}
  </div>
@@ -14,30 +13,31 @@
     <span class="col-sm-2">
         Reader id:
     </span>
-    <input class="col-sm-2 form-control" type="number" [(ngModel)]="currentReader.readerId"/>
+    <input class="col-sm-3 form-control" type="number" [(ngModel)]="currentReader.readerId"/>
     <div class="col-sm-1"></div>
-      <span class="col-sm-2">
+      <span class="col-sm-3">
           Reader name:
       </span>
-      <input class="col-sm-2 form-control" type="text" [(ngModel)]="currentReader.readerName"/>
+      <input class="col-sm-3 form-control" type="text" [(ngModel)]="currentReader.readerName"/>
   </div>
+  &nbsp;
   <div class="row">
       <span class="col-sm-2">
           Reader mail:
       </span>
-      <input class="col-sm-2 form-control" type="text" [(ngModel)]="currentReader.mail"/>
+      <input class="col-sm-3 form-control" type="text" [(ngModel)]="currentReader.mail"/>
       <div class="col-sm-1"></div>
-    <span class="col-sm-2">
+    <span class="col-sm-3">
       Reader phone number:
     </span>
-      <input class="col-sm-2 form-control" type="text" [(ngModel)]="currentReader.phoneNumber"/>
+      <input class="col-sm-3 form-control" type="text" [(ngModel)]="currentReader.phoneNumber"/>
   </div>
-  
+  &nbsp;
 <div class="row">
   <span class="col-sm-2">
-      No. of book the reader can take::
+      Max books to loan:
     </span>
-      <input type="number" [(ngModel)]="currentReader.maxBooks" class="col-sm-2 form-control"/>
+      <input type="number" [(ngModel)]="currentReader.maxBooks" class="col-sm-3 form-control"/>
     </div>
   </div>
  </div>
@@ -46,7 +46,7 @@
 <button type="button" (click)="getDetailsById()" class="btn btn-default">Get Reader</button>
 <button type="button" (click)="Save()" class="btn btn-default">Save</button>
 <button type="button" (click)="Delete()"class="btn btn-default">Delete</button>
-
+<p></p>
 </div>
 </div>
 </div>

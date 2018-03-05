@@ -12,8 +12,7 @@ export class ReadersService {
     constructor(private httpClient:HttpClient){}
 
     async addReader(reader:ReaderViewModel):Promise<boolean>{
-        debugger;
-        let newReader = new Reader(reader.readerId,reader.readerName,reader.mail,reader.phoneNumber,reader.maxBooks);
+       let newReader = new Reader(reader.readerId,reader.readerName,reader.mail,reader.phoneNumber,reader.maxBooks);
         let readerUrl = this.baseUrl + '/reader?id='+ reader.readerId; 
         let readerFromDB = await this.httpClient.get<Reader[]>(readerUrl).toPromise();
         if(readerFromDB.length>0){
@@ -28,7 +27,6 @@ export class ReadersService {
     }
     async getReader(readerId:number):Promise<ReaderViewModel>{
         let currentReader: ReaderViewModel= new ReaderViewModel();
-        debugger;
         let readerUrl = this.baseUrl + '/reader?id='+ readerId; 
         let readerFromDB = await this.httpClient.get<Reader[]>(readerUrl).toPromise();
         if(readerFromDB.length>0){
@@ -43,7 +41,6 @@ export class ReadersService {
     }
 
     async deleteReader(readerId:number):Promise<boolean>{
-        debugger;
         let readerUrl = this.baseUrl + '/reader?id='+ readerId; 
         let readerFromDB = await this.httpClient.get<Reader[]>(readerUrl).toPromise();
         if(readerFromDB.length>0){

@@ -3,6 +3,8 @@ import { BooksService } from '../data/books.service';
 import { CategoryCodes } from '../model/categories-codes';
 import { AudienceCodes } from '../model/audience-codes';
 import { BookViewModel } from '../books-screen/book.view-model';
+import {Router, ActivatedRoute } from '@angular/router';
+
 
 
 
@@ -21,7 +23,7 @@ export class InternalBookMangmentComponent implements OnInit {
   private successMessage:string="";
   private success:boolean=true;
 
-  constructor(private bookService: BooksService) { }
+  constructor(private bookService: BooksService,private route: ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
     this.errorMessage = "";
@@ -36,6 +38,20 @@ export class InternalBookMangmentComponent implements OnInit {
     this.bookService.getAllAudiance().then(result=>{
       if(result.length>0){
         this.audience=result;
+      }
+    });
+    this.route.paramMap.subscribe(params=> {
+      let id = +params.get('id');
+      if(id!=0){
+      this.bookService.getBookById(id).then(result=>{
+          this.currentBook.bookId= result.bookId;
+          this.currentBook.bookName=result.bookName;
+          this.currentBook.bookAuthor=result.author;
+          this.currentBook.bookPublishYear=result.publishYear;
+          this.currentBook.bookCategory=result.categoryCode;
+          this.currentBook.bookAudience=result.audienceCode;
+          this.currentBook.bookLocation=result.location;
+        }); 
       }
     });
   }
@@ -97,7 +113,7 @@ export class InternalBookMangmentComponent implements OnInit {
     }
   }
   cancel(){
-    //TODO: route to the previous screen
+    this.router.navigate(['homePage/bookManagment']);
   }
   checkAllFieldsAreFill(book: BookViewModel): string {
     if(!book.bookId)

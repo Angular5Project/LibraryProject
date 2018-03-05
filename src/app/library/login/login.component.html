@@ -1,14 +1,54 @@
-<h2  >Please insert in your details:</h2>
-<div>
-  <label>
-    Id:
-    <input type="text" [(ngModel)]="currentUser.userName" />
-  </label>
-  <label>
-    Password:
-    <input type="text" [(ngModel)]="currentUser.password"/>
-  </label>
-  <button type="button" (click)="validateUser()">login</button>
+<!-- <div class="container " style="width: 90%">
+<h1>LIBRARY</h1>
+<div class="panel panel-default">
+ <div class="panel-heading">Please insert in your details:</div>
+   
+       <div class="panel-body">
+           <div class="row">
+             <span class="col-sm-2">
+                User Name:
+             </span>
+             <label class="col-sm-3">
+                <input type="text" [(ngModel)]="currentUser.userName" />
+              </label>
+            </div>
+            <div class="row">
+              <span class="col-sm-2">
+                  Password:
+                </span>
+                <label class="col-sm-3">
+                  <input type="text" [(ngModel)]="currentUser.password"/>
+                </label>
+            </div>
+        </div>
+  </div>
+     <div class="row col-sm-offset-11">
+        <button type="button" (click)="validateUser()">login</button>
+     </div>
+ 
   <p *ngIf="userExists == false">There is no such a user!</p>
+</div> -->
+
+
+<div class="container " style="width: 75%">
+    <div class="panel panel-default">
+  <div class="imgcontainer">
+    <img src="/assets/img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div >
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" [(ngModel)]="currentUser.userName" required>
+
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" [(ngModel)]="currentUser.password" required>
+
+    <button type="button" (click)="validateUser()">Login</button>
+     
+  <p *ngIf="userExists == false">There is no such a user!</p>
+  </div>
+</div>
+
+  
 </div>
 

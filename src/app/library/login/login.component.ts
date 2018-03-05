@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.userService.checkUserExists(this.currentUser).then(result=>{
       if(result){
         debugger;
-        this.router.navigate(['homePage']);
+        this.router.navigate(['homePage/lendings']);
 
       }else{
         this.userExists = result;

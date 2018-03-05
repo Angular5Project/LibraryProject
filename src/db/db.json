@@ -32,56 +32,32 @@
       "mail": "ttt@yyy",
       "phoneNumber": "02677788",
       "maxBooks": 3
+    },
+    {
+      "id": 1234,
+      "readerName": "Yossi",
+      "mail": "Yossi@gmail.com",
+      "phoneNumber": "02-9999999",
+      "maxBooks": 1
     }
   ],
   "lending": [
     {
-      "id": 4,
-      "bookId": 1111111,
-      "readerId": 3,
-      "lendingDate": "2018-1-12",
-      "returningDate": "2018-02-19T21:10:50.416Z"
+      "bookId": "1111112",
+      "readerId": 1234,
+      "lendingDate": "2018-03-05T19:51:11.715Z",
+      "returningDate": "2018-03-05T20:04:40.992Z",
+      "id": 13
     },
     {
-      "bookId": 1111115,
-      "readerId": 1,
-      "lendingDate": "12/03/2017",
-      "returningDate": "2018-02-19T21:25:40.120Z",
-      "id": 6
-    },
-    {
-      "bookId": 1111111,
-      "readerId": 1,
-      "lendingDate": "2018-02-05T13:47:28.015Z",
+      "bookId": "1111113",
+      "readerId": 99999,
+      "lendingDate": "2018-03-05T20:00:56.022Z",
       "returningDate": null,
-      "id": 7
-    },
-    {
-      "bookId": 1111114,
-      "readerId": 3,
-      "lendingDate": "2018-1-12",
-      "returningDate": "2018-02-09T08:21:30.820Z",
-      "id": 8
-    },
-    {
-      "bookId": 135,
-      "readerId": 3,
-      "lendingDate": "2018",
-      "returningDate": "2018",
-      "id": 9
+      "id": 14
     }
   ],
   "book": [
-    {
-      "id": 2,
-      "bookId": 112,
-      "bookName": "kipa aduma",
-      "author": "rrr",
-      "publishYear": 1950,
-      "categoryCode": 140,
-      "audienceCode": 2,
-      "location": 7
-    },
     {
       "id": 3,
       "bookId": 113,
@@ -131,16 +107,20 @@
       "id": 1111114
     },
     {
-      "bookId": 124,
-      "id": 1111115
-    },
-    {
       "bookId": 111,
       "id": 1
     },
     {
       "bookId": 111,
       "id": 2
+    },
+    {
+      "bookId": 112,
+      "id": 1111115
+    },
+    {
+      "bookId": 112,
+      "id": 1111116
     }
   ],
   "categoryCodes": [

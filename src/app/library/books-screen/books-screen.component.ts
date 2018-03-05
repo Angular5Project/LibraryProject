@@ -25,7 +25,8 @@ export class BooksScreenComponent implements OnInit {
   constructor(private bookService:BooksService) { }
 
   ngOnInit() {
-    debugger;
+    this.searchForBook.bookCategory=0;
+    this.searchForBook.bookAudience=0;
     this.inManageBooksScreen = true; //TODO: send this parameter from the father
     this.bookService.getAllCtegories().then(result=>{
       if(result.length>0){
@@ -45,14 +46,12 @@ export class BooksScreenComponent implements OnInit {
   }
 
   searchBooks(){
-    debugger;
     this.bookService.serchBooks(this.searchForBook).then(result=>{
       this.searchResults = result;
     });
   }
 
   throwOutputAway(selectedbook: BookViewModel){
-    debugger;
     this.bookSelected.emit(selectedbook); 
   }
 

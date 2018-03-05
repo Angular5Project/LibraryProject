@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../model/book';
+import { Router, ActivatedRoute } from '@angular/router';
+import { BookViewModel } from '../books-screen/book.view-model';
 
 @Component({
   selector: 'book-managment',
@@ -8,14 +10,18 @@ import { Book } from '../model/book';
 })
 export class BookManagmentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
-  getSelectedBookEvent(selectedBook:Book){
+  getSelectedBookEvent(selectedBook:BookViewModel){
     debugger;
-    //TODO: rout to the internal book-managment screen with the currentBook details
+    let ID:number = selectedBook.bookId;
+    if(!ID){
+      ID = 0
+    }
+    this.router.navigate(['homePage/internalBookManagment',ID]);
     
   }
 

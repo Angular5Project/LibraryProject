@@ -21,11 +21,12 @@ export class LendingsComponent implements OnInit {
   addLend() {
     this.lendingService.insertLoan(this.currentLend).then(result=>{
       debugger;
-      if(result){
+      if(result){ debugger;
         switch(result){
           case 0:this.massage="the book was loaned successfully";break;
           case 1:this.massage="This reader doesn't exist in our library";break;
           case 2:this.massage="You can't loan now. You have too many books";break;
+          case 3:this.massage="You can't loan now. this book is loaned already";break;
         }
       }
     });

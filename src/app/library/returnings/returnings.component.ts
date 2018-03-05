@@ -28,7 +28,7 @@ export class ReturningsComponent implements OnInit {
       debugger;
         this.massage = "the book was retured successfully";
       }else{
-        this.massage = "This book was't lended";
+        this.massage = "couldn't return the book as expected";
       }
     }
   });

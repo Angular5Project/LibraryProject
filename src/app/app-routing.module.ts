@@ -6,37 +6,20 @@ import { LoginComponent } from "./library/login/login.component";
 import { HomePageComponent } from "./library/home-page/home-page.component";
 import { LendingsComponent } from "./library/lendings/lendings.component";
 import { ReturningsComponent } from "./library/returnings/returnings.component";
+import { RedearsManagmentComponent } from "./library/redears-managment/redears-managment.component";
+import { InternalBookMangmentComponent } from "./library/internal-book-mangment/internal-book-mangment.component";
 
-
-// const routes : Route[] = [
-//     //{ path: 'red/:number', component: LoginComponent},
-//     { path: 'login', component: LoginComponent},
-//     { path: 'homePage', component: HomePageComponent ,
-//     children:[
-//         { path: 'bookManagment', component: BookManagmentComponent ,outlet:'homeNavigation' },
-//         { path: 'bookStatus', component: BookStatusComponent ,outlet:'homeNavigation' },
-//         { path: 'lendings', component: LendingsComponent ,outlet:'homeNavigation'},
-//         { path: 'returnings', component: ReturningsComponent,outlet:'homeNavigation' }
-//     ]},
-   
-// ];
-const route : Route[] = [
-     { path: '', component: LoginComponent},
-     // { path: 'login', component: LoginComponent},
-     { path: 'homePage', component: HomePageComponent },
-     { path: 'homePage/bookManagment', component: BookManagmentComponent },
-     { path: 'homePage/bookStatus', component: BookStatusComponent },
-     { path: 'homePage/lendings', component: LendingsComponent,outlet:'homeNavigation' },
-     { path: 'homePage/returnings', component: ReturningsComponent }  
- ];
  const routes: Routes = [
      {path: '', redirectTo: 'login', pathMatch: 'full'},
      {path: 'login', component: LoginComponent},
      {path: 'homePage', component: HomePageComponent, children: [
          {path: 'bookManagment', component: BookManagmentComponent},
+         {path: 'internalBookManagment/:id', component: InternalBookMangmentComponent},
          {path: 'bookStatus', component: BookStatusComponent},
          {path: 'lendings', component: LendingsComponent},
-         {path: 'returnings', component: ReturningsComponent}
+         {path: 'returnings', component: ReturningsComponent},
+         {path: 'readersManagment', component: RedearsManagmentComponent}
+         
    ]},
  ];
 

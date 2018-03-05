@@ -1,68 +1,66 @@
-<div class="container myContainer">
-<h2  >Please insert criteria for the book you're looking for</h2>
+<div class="container " style="width: 90%">
+<h3>Please insert criteria for the book you're looking for</h3>
 
 <div class="panel panel-default">
-<div class="panel-heading">Please insert criteria for the book you're looking for</div>
+<!--<div class="panel-heading">Please insert criteria for the book you're looking for</div>-->
 <div class="panel-body">
 <div class="row">
-  <span class="col-sm-6">
+  <span class="col-sm-3">
     Book name:
     </span>
-    <label class="col-sm-6">
+    <label class="col-sm-3">
     <input type="text" [(ngModel)]="searchForBook.bookName"/>
   </label>
 </div>
 <div class=" row">
-  <span class="col-sm-6">
+  <span class="col-sm-3">
     Book author:
   </span>
-  <label class="col-sm-6">
+  <label class="col-sm-3">
     <input type="text" [(ngModel)]="searchForBook.bookAuthor"/>
   </label>
 </div>
 <div class=" row">
-  <span class="col-sm-6">
+  <span class="col-sm-3">
       Book publish year:
   </span>
-  <label class="col-sm-6">
-    <input type="number" [(ngModel)]="searchForBook.bookPublishYear"/>
+  <label class="col-sm-3">
+    <input type="number" [(ngModel)]="searchForBook.bookPublishYear" />
   </label>
 </div>
 <div class="row">
- <span class="col-sm-6">
+ <span class="col-sm-3">
     Book category:
   </span>
-    <label class="col-sm-6">
+    <label class="col-sm-3">
     <select [(ngModel)]="searchForBook.bookCategory" >
-        <option [value]="">Please Select</option>
+        <option [value]="0">Please Select</option>
         <option *ngFor="let c of categories" [value]="c.categoryCode" >{{c.categoryName}}</option>
       </select>
   </label>
 </div>
 <div class="row">
- <span class="col-sm-6">
+ <span class="col-sm-3">
     Book audiance:
   </span>
-  <label class="col-sm-6">
-    <select [(ngModel)]="searchForBook.bookAudience" class="col-sm-6">
-        <option [value]="">Please Select</option>
+  <label class="col-sm-3">
+    <select [(ngModel)]="searchForBook.bookAudience" class="col-sm-12">
+        <option [value]="0">Please Select</option>
         <option *ngFor="let c of audience" [value]="c.audienceCode" >{{c.audienceName}}</option>
-      </select>
+    </select>
   </label>
 </div>
 </div>
 </div>
-  <div class="col-sm-6">
+<div class="col-sm-12 text-right">
   <button type="button" (click)="searchBooks()">Search</button>
   <button type="button" [hidden]="fromStatus" (click)="addBook()">Add</button>
-  <!--<p *ngIf="userExists == false">There is no such a user!</p>-->
 </div>
 </div>
 
 <div>
   <books [books]="searchResults" (recordSelected)="throwOutputAway($event)"></books>
 </div>
-<!-- (recordAdded)="addRecordUsingService(ch.name, $event)" -->
     
     
 

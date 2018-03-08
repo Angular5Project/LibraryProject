@@ -53,21 +53,39 @@
       "bookId": "1111113",
       "readerId": 99999,
       "lendingDate": "2018-03-05T20:00:56.022Z",
-      "returningDate": null,
+      "returningDate": "2018-03-06T12:30:35.760Z",
       "id": 14
+    },
+    {
+      "bookId": "114",
+      "readerId": 1234,
+      "lendingDate": "2018-03-06T12:21:35.752Z",
+      "returningDate": "2018-03-06T12:32:19.168Z",
+      "id": 15
+    },
+    {
+      "bookId": "2",
+      "readerId": 99999,
+      "lendingDate": "2018-03-06T12:23:02.814Z",
+      "returningDate": null,
+      "id": 16
+    },
+    {
+      "bookId": "1111113",
+      "readerId": 1234,
+      "lendingDate": "2018-03-06T15:55:52.885Z",
+      "returningDate": null,
+      "id": 17
+    },
+    {
+      "bookId": "1111114",
+      "readerId": 99999,
+      "lendingDate": "2018-03-06T15:56:57.565Z",
+      "returningDate": null,
+      "id": 18
     }
   ],
   "book": [
-    {
-      "id": 3,
-      "bookId": 113,
-      "bookName": "kipa aduma",
-      "author": "aaa",
-      "publishYear": 1950,
-      "categoryCode": 140,
-      "audienceCode": 1,
-      "location": 6
-    },
     {
       "id": 4,
       "bookId": 114,
@@ -87,6 +105,16 @@
       "audienceCode": "3",
       "location": 1234,
       "id": 5
+    },
+    {
+      "bookId": 113,
+      "bookName": "kipa aduma",
+      "author": "aaa",
+      "publishYear": 1950,
+      "categoryCode": 140,
+      "audienceCode": 1,
+      "location": 6,
+      "id": 6
     }
   ],
   "bookCopies": [

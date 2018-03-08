@@ -8,54 +8,48 @@
   <span class="col-sm-3">
     Book name:
     </span>
-    <label class="col-sm-3">
-    <input type="text" [(ngModel)]="searchForBook.bookName"/>
-  </label>
-</div>
-<div class=" row">
-  <span class="col-sm-3">
+    <input type="text" [(ngModel)]="searchForBook.bookName" class="col-sm-3 form-control"/>
+  <div class="col-sm-1"></div>
+  <span class="col-sm-2">
     Book author:
   </span>
-  <label class="col-sm-3">
-    <input type="text" [(ngModel)]="searchForBook.bookAuthor"/>
-  </label>
+    <input type="text" [(ngModel)]="searchForBook.bookAuthor" class="col-sm-3 form-control"/>
 </div>
+&nbsp;
 <div class=" row">
   <span class="col-sm-3">
       Book publish year:
   </span>
-  <label class="col-sm-3">
-    <input type="number" [(ngModel)]="searchForBook.bookPublishYear" />
-  </label>
-</div>
-<div class="row">
- <span class="col-sm-3">
-    Book category:
-  </span>
-    <label class="col-sm-3">
-    <select [(ngModel)]="searchForBook.bookCategory" >
+    <input type="number" [(ngModel)]="searchForBook.bookPublishYear" class="col-sm-3 form-control" />
+    <div class="col-sm-1"></div>
+    <span class="col-sm-2">
+      Book category:
+    </span>
+    
+    <select [(ngModel)]="searchForBook.bookCategory"  class="col-sm-3 form-control">
         <option [value]="0">Please Select</option>
         <option *ngFor="let c of categories" [value]="c.categoryCode" >{{c.categoryName}}</option>
-      </select>
-  </label>
+    </select>
 </div>
+&nbsp;
 <div class="row">
  <span class="col-sm-3">
     Book audiance:
   </span>
-  <label class="col-sm-3">
-    <select [(ngModel)]="searchForBook.bookAudience" class="col-sm-12">
+    <select [(ngModel)]="searchForBook.bookAudience" class="col-sm-3 form-control">
         <option [value]="0">Please Select</option>
         <option *ngFor="let c of audience" [value]="c.audienceCode" >{{c.audienceName}}</option>
     </select>
-  </label>
 </div>
 </div>
 </div>
+<div class="row">
 <div class="col-sm-12 text-right">
-  <button type="button" (click)="searchBooks()">Search</button>
-  <button type="button" [hidden]="fromStatus" (click)="addBook()">Add</button>
+  <button type="button" (click)="searchBooks()" class="btn btn-default">Search</button>
+  <button type="button" [hidden]="fromStatus" (click)="addBook()" class="btn btn-default">Add</button>
 </div>
+</div>
+<p></p>
 </div>
 
 <div>

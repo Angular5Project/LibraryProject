@@ -4,3 +4,6 @@
 .bg{
     background-image:lightblue url("/assets/img_avatar2.png") no-repeat fixed center; 
 }
+a{
+    color: black;
+}

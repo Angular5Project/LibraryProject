@@ -1,13 +1,15 @@
 <div class="container" style="width:90%">
-  <div class="panel panel-default">
- <h2>Readers managment screen:</h2>
+  
+ <h3>Please insert details of reader:</h3>
  <div class="alert alert-danger " [hidden]="error" >
-    {{errorMessage}}
+  {{errorMessage}}
 </div>
- <div class="alert alert-success" [hidden]="success">
-   {{successMessage}}
- </div>
- <div class="panel-heading">Please insert details of reader:</div>
+<div class="alert alert-success" [hidden]="success">
+ {{successMessage}}
+</div>
+  <div class="panel panel-default">
+ 
+ <!--<div class="panel-heading">Please insert details of reader:</div>-->
  <div class="panel-body">
   <div class="row">
     <span class="col-sm-2">

@@ -1,5 +1,12 @@
 <div class="container " style="width: 90%">
     <h3>Please insert loan details:</h3>
+    <div class="alert alert-danger " [hidden]="error" >
+        {{errorMessage}}
+    </div>
+    
+     <div class="alert alert-success" [hidden]="success">
+       {{successMessage}}
+     </div>
   <div class="panel panel-default">
  <!--  <div class="panel-heading">Please insert loan details:</div>-->
 
@@ -23,11 +30,12 @@
         </div>
       </div>
 </div>
-
+<div class="row"> 
 <div class="col-sm-12 text-right">
   <button type="button" (click)="addLend()" class="btn btn-default">Loan</button>
 </div>
-
+</div>
+<p></p>
 <p>{{massage}}</p> 
 
   

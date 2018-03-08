@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
 <div>
     <div class="col-sm-1">
         name:
@@ -32,4 +32,25 @@
     </div>
 
   </div>
-</div>
+</div>-->
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>name:</th>
+        <th>author:</th>
+        <th>publishYear:</th>
+        <th>category:</th>
+        <th>audience:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{book.bookName}}</td>
+        <td>{{book.bookAuthor}}</td>
+        <td>{{book.bookPublishYear}}</td>
+        <td>{{book.bookCategoryDesc}}</td>
+        <td>{{book.bookAudienceDesc}}</td>
+      </tr>
+    </tbody>
+  </table>

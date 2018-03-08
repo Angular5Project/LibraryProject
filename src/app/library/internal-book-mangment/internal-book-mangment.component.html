@@ -1,42 +1,46 @@
-<div class="container" style="width:75%">
-  <div class="panel panel-default">
- <h2>Internal Book managment screen:</h2>
- <div class="alert alert-danger " [hidden]="error" >
+<div class="container" style="width:90%">
+  
+  <h3>Please insert details:</h3>
+  <div class="alert alert-danger " [hidden]="error" >
     {{errorMessage}}
 </div>
 
  <div class="alert alert-success" [hidden]="success">
    {{successMessage}}
  </div>
- <div class="panel-heading">Please insert details:</div>
+  <div class="panel panel-default">
+
+
  <div class="panel-body">
   <div class="row">
     <span class="col-sm-2">
         Book id:
     </span>
-    <input class="col-sm-2 form-control" type="number" [(ngModel)]="currentBook.bookId"/>
+    <input class="col-sm-3 form-control" type="number" [(ngModel)]="currentBook.bookId"/>
     <div class="col-sm-1"></div>
       <span class="col-sm-2">
           Book name:
       </span>
-      <input class="col-sm-2 form-control" type="text" [(ngModel)]="currentBook.bookName"/>
+      <input class="col-sm-3 form-control" type="text" [(ngModel)]="currentBook.bookName"/>
   </div>
+  &nbsp;
   <div class="row">
       <span class="col-sm-2">
           Book author:
       </span>
-      <input class="col-sm-2 form-control" type="text" [(ngModel)]="currentBook.bookAuthor"/>
+      <input class="col-sm-3 form-control" type="text" [(ngModel)]="currentBook.bookAuthor"/>
       <div class="col-sm-1"></div>
     <span class="col-sm-2">
       Book publish year:
     </span>
-      <input class="col-sm-2 form-control" type="number" [(ngModel)]="currentBook.bookPublishYear"/>
+      <input class="col-sm-3 form-control" type="number" [(ngModel)]="currentBook.bookPublishYear"/>
   </div>
+  &nbsp;
   <div class="row">
     <span class="col-sm-2">
       Book category:
     </span>
-      <select  [(ngModel)]="currentBook.bookCategory" class="col-sm-2 form-control">
+      <select  [(ngModel)]="currentBook.bookCategory" class="col-sm-3 form-control">
           <option [value]="0">Please Select</option>
           <option *ngFor="let c of categories" [value]="c.categoryCode" >{{c.categoryName}}</option>
         </select>
@@ -44,26 +48,27 @@
     <span class="col-sm-2">
       Book audiance:
     </span>
-      <select [(ngModel)]="currentBook.bookAudience" class="col-sm-2 form-control" >
+      <select [(ngModel)]="currentBook.bookAudience" class="col-sm-3 form-control" >
           <option [value]="0">Please Select</option>
           <option *ngFor="let c of audience" [value]="c.audienceCode" >{{c.audienceName}}</option>
         </select>
   </div>
+  &nbsp;
 <div class="row">
   <span class="col-sm-2">
       Book location:
     </span>
-      <input type="number" [(ngModel)]="currentBook.bookLocation" class="col-sm-2 form-control"/>
+      <input type="number" [(ngModel)]="currentBook.bookLocation" class="col-sm-3 form-control"/>
     </div>
   </div>
   
 </div>
 <div class="row ">
   <div class="col-sm-12 text-right">
-<button type="button" (click)="Save()" class="btn btn-default">Save</button>
-<button type="button" (click)="DeleteBookFromLibrary()"class="btn btn-default">Delete</button>
-<button type="button" (click)="addCopyOfBook()" class="btn btn-default">Add Copy</button>
-<button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>
+    <button type="button" (click)="Save()" class="btn btn-default">Save</button>
+    <button type="button" (click)="DeleteBookFromLibrary()"class="btn btn-default">Delete</button>
+    <button type="button" (click)="addCopyOfBook()" class="btn btn-default">Add Copy</button>
+    <button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>
 </div>
 </div>
 </div>

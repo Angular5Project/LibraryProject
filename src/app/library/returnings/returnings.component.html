@@ -1,5 +1,12 @@
 <div class="container " style="width: 90%">
 <h3>Please insert details to return a book:</h3>
+<div class="alert alert-danger " [hidden]="error" >
+    {{errorMessage}}
+</div>
+
+ <div class="alert alert-success" [hidden]="success">
+   {{successMessage}}
+ </div>
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="row">
@@ -20,10 +27,12 @@
     </div>
  </div>
 </div>
-
+<div class="row"> 
 <div class="col-sm-12 text-right">
   <button type="button" (click)="returnBook()" class="btn btn-default">Return</button>
 </div>
+</div>
+<p></p>
   <p>{{massage}}</p>
 
 </div>
